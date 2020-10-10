@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,11 +9,12 @@ public class ObstaclesController : MonoBehaviour
     public GameObject myPrefab;
 
     private List<CageController> cages = new List<CageController>();
+    private Bounds cameraBounds;
 
     // This script will simply instantiate the Prefab when the game starts.
     void Start()
     {
-        
+        cameraBounds = Camera.main.OrthographicBounds();
     }
     
     // Update is called once per frame
@@ -31,8 +33,10 @@ public class ObstaclesController : MonoBehaviour
     private void SpawnNewCage()
     {
         // New instance
-        // TODO: should start from right side of screen, and add a velocity vector
-        var newCage = Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        var startPosition = new Vector3(cameraBounds.max.x, 0, 0);
+        //var newCage = Instantiate(myPrefab, startPosition, Quaternion.AngleAxis(45, Vector3.left));
+        var newCage = Instantiate(myPrefab, startPosition, Quaternion.identity);
+
         var newCageController = newCage.GetComponent<CageController>();
 
         // TODO: should pop from a stack or queue of the animals list
