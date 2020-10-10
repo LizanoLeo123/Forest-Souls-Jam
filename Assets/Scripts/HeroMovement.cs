@@ -11,6 +11,7 @@ public class HeroMovement : MonoBehaviour
 
     float horizontalMove = 0f;
     bool jump = false;
+    bool isDead = false;
 
     // Update is called once per frame
     void Update()
@@ -20,12 +21,16 @@ public class HeroMovement : MonoBehaviour
 
         animator.SetFloat("heroSpeed", Mathf.Abs(horizontalMove));
 
-        if (Input.GetButtonDown("Jump"))
+        isDead = animator.GetBool("isDead");
+
+        if (Input.GetButtonDown("Jump") && !isDead)
         {
             jump = true;
             
             animator.SetBool("isJumping", true);
         }
+
+
 
     }
 
@@ -37,7 +42,7 @@ public class HeroMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, isDead);
         jump = false;
     }
 }

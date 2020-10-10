@@ -80,6 +80,27 @@ TextureImporter:
   - first:
       213: 1192823948259379166
     second: Hero-Sheet_14
+  - first:
+      213: -6037539514403042113
+    second: Hero-Sheet_11
+  - first:
+      213: 4330064044757471380
+    second: Hero-Sheet_12
+  - first:
+      213: -3254265613120304798
+    second: Hero-Sheet_13
+  - first:
+      213: 295240055433176196
+    second: Hero-Sheet_14
+  - first:
+      213: 5389677390889691746
+    second: Hero-Sheet_15
+  - first:
+      213: -3933218617521568914
+    second: Hero-Sheet_16
+  - first:
+      213: 2618017377198119786
+    second: Hero-Sheet_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -181,7 +202,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -202,7 +223,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -223,7 +244,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -244,7 +265,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -265,7 +286,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -286,7 +307,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -307,7 +328,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -328,7 +349,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -349,7 +370,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -370,7 +391,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -391,7 +412,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -412,6 +433,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc4f96ccc9563ca0800000000000000
+      internalID: -6037539514403042113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -422,14 +464,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5601960049a80d4b0800000000000000
-      internalID: -5417677983460028315
+      spriteID: 490d57a9e4a771c30800000000000000
+      internalID: 4330064044757471380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero-Sheet_12
+      name: Hero-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269023daaa686d2d0800000000000000
+      internalID: -3254265613120304798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484af832447e81400800000000000000
+      internalID: 295240055433176196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero-Sheet_15
       rect:
         serializedVersion: 2
         x: 0
@@ -443,14 +527,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68a620b6a324467f0800000000000000
-      internalID: -620298029999428986
+      spriteID: 26a2fe1080bfbca40800000000000000
+      internalID: 5389677390889691746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero-Sheet_13
+      name: Hero-Sheet_16
       rect:
         serializedVersion: 2
         x: 32
@@ -464,14 +548,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4c47c6ddca0ef700800000000000000
-      internalID: 575909681537961038
+      spriteID: e638ca6a1866a69c0800000000000000
+      internalID: -3933218617521568914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero-Sheet_14
+      name: Hero-Sheet_17
       rect:
         serializedVersion: 2
         x: 64
@@ -485,8 +569,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed74493af03cd8010800000000000000
-      internalID: 1192823948259379166
+      spriteID: a6b91b70fe0155420800000000000000
+      internalID: 2618017377198119786
       vertices: []
       indices: 
       edges: []
