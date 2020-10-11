@@ -19,7 +19,7 @@ public class DeadMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){ // Condicion para que el personaje muera
+        if(Input.GetKeyDown(KeyCode.F)){ // Condicion para que el personaje muera
         	if(GameOver){
         		Restart();
         	}else{
@@ -35,9 +35,9 @@ public class DeadMenu : MonoBehaviour
     	SceneManager.LoadScene(pricipalScene);
     }
 
-    void Pause(){
+    public void Pause(){
     	deadMenuUI.SetActive(true);
-    	Time.timeScale = 0f;
+    	//Time.timeScale = 0f;
     	GameOver = true;
     }
 
