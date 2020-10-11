@@ -9,19 +9,22 @@ public class ObstaclesController : MonoBehaviour
     public GameObject prefabAnimalCage;
     public GameObject prefabRock;
     public GameObject prefabBullets;
-    public GameObject prefabGun;
     public GameObject prefabBoomerang;
 
     private List<CageController> cages = new List<CageController>();
     private Bounds cameraBounds;
     private Vector3 startPosition;
-    private GameObject gun = null;
+    private GameObject hunter = null;
 
+    private HunterController hunterCt = null;
     // This script will simply instantiate the Prefab when the game starts.
     void Start()
     {
         cameraBounds = Camera.main.OrthographicBounds();
         startPosition = new Vector3(cameraBounds.max.x, 0, 0);
+        
+        hunter = GameObject.Find("Hunter");
+        hunterCt = hunter.GetComponent<HunterController>();
     }
 
     // Update is called once per frame
@@ -30,23 +33,27 @@ public class ObstaclesController : MonoBehaviour
         // TODO: temp keycode to instantiate a new cage prefab
         if (Input.GetKeyDown(KeyCode.O))
         {
+            startPosition = hunter.transform.position + new Vector3(-0.2f, -0.25f, 0);
             NewObstacle();
         }
     }
 
     private void NewObstacle()
     {
-        int obstacleCode = Random.Range(0, 3);
+        int obstacleCode = 2; // Random.Range(0, 3);
         switch (obstacleCode)
         {
             case 0:
-                ThrowNewAnimalCage();
+                hunterCt.ThrowBox();
+                Invoke("ThrowNewAnimalCage", 2.0f);
                 break;
             case 1:
-                ThrowRocks();
+                hunterCt.ThrowRock();
+                Invoke("ThrowRocks", 2.0f);
                 break;
             case 2:
-                FireShotgun();
+                hunterCt.Shoot();
+                Invoke("FireShotgun", 0.85f);
                 break;
             default:
                 break;
@@ -77,22 +84,8 @@ public class ObstaclesController : MonoBehaviour
 
     private void FireShotgun()
     {
-        if (gun == null)
-            gun = Instantiate(prefabGun, startPosition, Quaternion.identity);
-        else
-            gun.SetActive(true);
-
         // Create bullets
         var bullet1 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
         var bullet2 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
-        //var bullet3 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
-
-        // Hide gun after 1 second
-        Invoke("HideGun", 1.0f);
-    }
-
-    private void HideGun()
-    {
-        gun.SetActive(false);
     }
 }
