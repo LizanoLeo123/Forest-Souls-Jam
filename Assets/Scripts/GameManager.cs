@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public bool gameFinished;
 
+    private GameObject _heroPrefab;
+
     private BG_Controller _bgFar;
     private BG_Controller2 _bgMid;
     private BG_Controller3 _bgClose;
@@ -33,7 +35,9 @@ public class GameManager : MonoBehaviour
         _score = GameObject.Find("Timer").GetComponent<Score>();
 
         //This should not be here
-        _hero = GameObject.Find("Hero").GetComponent<HeroMovement>();
+        //_hero = GameObject.Find("Hero").GetComponent<HeroMovement>();
+        _heroPrefab = GameObject.Find("Hero");
+        _heroPrefab.SetActive(false);
 
         _deadMenu = GameObject.Find("Canvas").GetComponent<DeadMenu>();
     }
@@ -43,21 +47,41 @@ public class GameManager : MonoBehaviour
     {
         if(gameFinished == true)
         {
-            //Stop ground movement
-            _ground.SetActive(true);
-            _groundAnimated.SetActive(false);
-
-            _bgFar.gameStart = false;
-            _bgMid.gameStart = false;
-            _bgClose.gameStart = false;
-
-            //Stop timer
-            _score.start = false;
-
-            //Show death menu
-            _hero.KillPlayer();
-            StartCoroutine(ShowGameOver());
+            FinishGame();
         }
+    }
+
+    public void StartGame()
+    {
+        _heroPrefab.SetActive(true);
+        _ground.SetActive(false);
+        _groundAnimated.SetActive(true);
+
+        _bgFar.gameStart = true;
+        _bgMid.gameStart = true;
+        _bgClose.gameStart = true;
+
+        //Stop timer
+        _score.start = false;
+
+    }
+
+    private void FinishGame()
+    {
+        //Stop ground movement
+        _ground.SetActive(true);
+        _groundAnimated.SetActive(false);
+
+        _bgFar.gameStart = false;
+        _bgMid.gameStart = false;
+        _bgClose.gameStart = false;
+
+        //Stop timer
+        _score.start = false;
+
+        //Show death menu
+        //_hero.KillPlayer();
+        StartCoroutine(ShowGameOver());
     }
 
     private IEnumerator ShowGameOver()

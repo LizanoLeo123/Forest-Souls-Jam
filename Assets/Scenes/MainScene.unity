@@ -196,12 +196,12 @@ PrefabInstance:
     - target: {fileID: 277030552494656034, guid: 7ced8aa538592354184b0bb9a2d9ad7c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.89
+      value: -4.4
       objectReference: {fileID: 0}
     - target: {fileID: 277030552494656034, guid: 7ced8aa538592354184b0bb9a2d9ad7c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.551
+      value: -1.82
       objectReference: {fileID: 0}
     - target: {fileID: 277030552494656034, guid: 7ced8aa538592354184b0bb9a2d9ad7c,
         type: 3}
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103de6fac97186c478bd366b3a9039b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: 1
+  start: 0
   time: 0
   scoreLabel: {fileID: 1134469447}
 --- !u!4 &340203186
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   _backgroundsArray:
   - {fileID: 160605585}
   speed: 1.1
-  gameStart: 1
+  gameStart: 0
   gameFinished: 0
 --- !u!1 &553344288
 GameObject:
@@ -3267,7 +3267,7 @@ MonoBehaviour:
   _backgroundsArray:
   - {fileID: 928937926}
   speed: 0.3
-  gameStart: 1
+  gameStart: 0
   gameFinished: 0
 --- !u!1 &1447820562
 GameObject:
@@ -3798,7 +3798,7 @@ MonoBehaviour:
   _backgroundsArray:
   - {fileID: 483547980}
   speed: 0.7
-  gameStart: 1
+  gameStart: 0
   gameFinished: 0
 --- !u!1 &2004893977
 GameObject:
