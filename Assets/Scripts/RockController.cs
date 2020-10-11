@@ -7,6 +7,8 @@ public class RockController : MonoBehaviour
     private Rigidbody2D rb2D;
     private bool destroying = false;
 
+    public int damage = 20;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +40,13 @@ public class RockController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
+
         if (collision.gameObject.name == "Hero")
         {
             var hero = collision.gameObject.GetComponent<HeroMovement>();
-            hero?.takeHit();
+            hero?.takeHit(damage);
+            Destroy(this.gameObject);
         }
     }
 }
