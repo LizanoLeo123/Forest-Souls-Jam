@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class IntroTimelineController : MonoBehaviour
 {
-
     private GameObject sloth;
     private GameObject animalCageIntro;
 

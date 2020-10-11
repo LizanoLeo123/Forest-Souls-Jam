@@ -20,6 +20,30 @@ TextureImporter:
   - first:
       213: -4654102829445103667
     second: Animals_5
+  - first:
+      213: 7526999155562249329
+    second: Animals_0
+  - first:
+      213: 1903884273692753004
+    second: Animals_1
+  - first:
+      213: 3984906137864736096
+    second: Animals_2
+  - first:
+      213: 8463286336873587313
+    second: Animals_3
+  - first:
+      213: 248679599134921061
+    second: Animals_4
+  - first:
+      213: -6361811749014618206
+    second: Animals_5
+  - first:
+      213: 7208793168840343675
+    second: Animals_6
+  - first:
+      213: -1443884807514508771
+    second: Animals_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,7 +145,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -131,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3de3b4f6180129b20800000000000000
-      internalID: 3139590038334684883
+      spriteID: 17cf3fb2ad5457860800000000000000
+      internalID: 7526999155562249329
       vertices: []
       indices: 
       edges: []
@@ -142,6 +166,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6cb8e2e8a4fb6a10800000000000000
+      internalID: 1903884273692753004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animals_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 64
         width: 32
         height: 32
@@ -152,29 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8156494e911e1ce60800000000000000
-      internalID: 7980907516002592024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animals_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eff2dbdd5ce6ae5b0800000000000000
-      internalID: -5338332612186525698
+      spriteID: 06d83baf40b3d4730800000000000000
+      internalID: 3984906137864736096
       vertices: []
       indices: 
       edges: []
@@ -184,6 +208,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17264cd3512a37570800000000000000
+      internalID: 8463286336873587313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animals_4
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -194,14 +239,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 835ccffcdc2a548c0800000000000000
-      internalID: -4015624487889484488
+      spriteID: 561d25127cc737300800000000000000
+      internalID: 248679599134921061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animals_4
+      name: Animals_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2afb31cabed46b7a0800000000000000
+      internalID: -6361811749014618206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animals_6
       rect:
         serializedVersion: 2
         x: 0
@@ -215,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 022a3eb8bd858a850800000000000000
-      internalID: 6388453771393081888
+      spriteID: b70cdf77137ca0460800000000000000
+      internalID: 7208793168840343675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animals_5
+      name: Animals_7
       rect:
         serializedVersion: 2
         x: 32
@@ -236,8 +302,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcfb8c6922e496fb0800000000000000
-      internalID: -4654102829445103667
+      spriteID: d12b387ea6a46fbe0800000000000000
+      internalID: -1443884807514508771
       vertices: []
       indices: 
       edges: []
