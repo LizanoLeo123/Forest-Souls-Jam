@@ -55,15 +55,15 @@ public class ObstaclesController : MonoBehaviour
         //Invoke("NewObstacle", 3.0f);
     }
 
+    private static List<string> animals = new List<string>() { "monkey", "snake", "sloth" };
+
     private void ThrowNewAnimalCage()
     {
-        // New instance
         var newCage = Instantiate(prefabAnimalCage, startPosition, Quaternion.identity);
         var newCageController = newCage.GetComponent<CageController>();
 
-        // TODO: should pop from a stack or queue of the animals list
-        newCageController.animalName = "monkey";
-
+        newCageController.animalName = animals[Random.Range(0, animals.Count)];
+        
         // Add to array, to keep track of it
         cages.Add(newCageController);
     }

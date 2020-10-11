@@ -6,7 +6,7 @@ public class CageController : MonoBehaviour
 {
     public string animalName = "";
     private Rigidbody2D rb2D;
-
+    
     // Start is called before the first frame update
     void Start()
     {
