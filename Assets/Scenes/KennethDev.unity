@@ -233,8 +233,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e374a9d3e934eb4d8f9a4a6b1a0b055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 5191083045664554270, guid: 688b7858c3656c547adc7389bd71d642,
+  prefabAnimalCage: {fileID: 5917554005204267799, guid: bd2b7947d263785408345cedc066bd41,
     type: 3}
+  prefabRock: {fileID: 6593352416240594262, guid: b9dff63ff2a881d469fed0f9cf9c0673,
+    type: 3}
+  prefabBullets: {fileID: 4324402872146831164, guid: f296240c3c9aebf49994a75bb641038e,
+    type: 3}
+  prefabGun: {fileID: 3444148651860261718, guid: a3cf08fe990f0b94e838202cf0d29048,
+    type: 3}
+  prefabBoomerang: {fileID: 0}
 --- !u!4 &730057966
 Transform:
   m_ObjectHideFlags: 0
