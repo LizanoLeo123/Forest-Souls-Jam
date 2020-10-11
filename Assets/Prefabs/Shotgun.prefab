@@ -12,15 +12,13 @@ GameObject:
   - component: {fileID: 6422690563998753971}
   - component: {fileID: 3513921059613840059}
   - component: {fileID: 6459078838647305664}
-
   m_Layer: 8
-
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2626351529551276213
 Transform:
   m_ObjectHideFlags: 0
@@ -72,18 +70,16 @@ SpriteShapeRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-
   m_SortingLayerID: 1610248775
   m_SortingLayer: 2
   m_SortingOrder: 1
-
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []
   m_LocalAABB:
-    m_Center: {x: 0, y: -0.00000023841858, z: 0}
-    m_Extent: {x: 2.0000002, y: 2, z: 0}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 1048576, y: 1048576, z: 1048576}
 --- !u!114 &3513921059613840059
 MonoBehaviour:
   m_ObjectHideFlags: 0

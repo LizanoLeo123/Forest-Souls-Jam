@@ -13,15 +13,13 @@ GameObject:
   - component: {fileID: 4587271564266535346}
   - component: {fileID: 6078455005972566223}
   - component: {fileID: 285166124022391345}
-
   m_Layer: 8
-
   m_Name: Bullet
-  m_TagString: Obstacles
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7822663298062660725
 Transform:
   m_ObjectHideFlags: 0
@@ -72,21 +70,18 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-
   m_SortingLayerID: 1610248775
   m_SortingLayer: 2
   m_SortingOrder: 1
-
-  m_Sprite: {fileID: -4078283541052840964, guid: 13be3f6619449a54bada337287d4c5d5,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.78125, y: 0.25}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &4587271564266535346

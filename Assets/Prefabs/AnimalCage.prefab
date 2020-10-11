@@ -13,15 +13,13 @@ GameObject:
   - component: {fileID: 6821589773098139604}
   - component: {fileID: 4971083196786419024}
   - component: {fileID: 6506738383237193111}
-
   m_Layer: 8
-
   m_Name: AnimalCage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1331718909015904601
 Transform:
   m_ObjectHideFlags: 0
@@ -72,13 +70,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-
   m_SortingLayerID: 1610248775
   m_SortingLayer: 2
   m_SortingOrder: 1
-
-  m_Sprite: {fileID: -3972776822516008954, guid: 13be3f6619449a54bada337287d4c5d5,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &6821589773098139604
