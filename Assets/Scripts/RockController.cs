@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CageController : MonoBehaviour
+public class RockController : MonoBehaviour
 {
-    public string animalName = "";
     private Rigidbody2D rb2D;
-    
+    private bool destroying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +14,20 @@ public class CageController : MonoBehaviour
         throwIt();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (!destroying)
+        {
+            destroying = true;
+            Destroy(this.gameObject, 2.0f);
+        }
+    }
+
     private void throwIt()
     {
         // Force when thrown
-        var velocityX = Random.Range(-2, -6);
+        var velocityX = Random.Range(-5, -10);
         var velocityY = Random.Range(2, 6);
         rb2D.velocity = new Vector2(velocityX, velocityY);
 
@@ -26,21 +36,12 @@ public class CageController : MonoBehaviour
         rb2D.SetRotation(angle);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Hero")
         {
-            Debug.Log("Collision with Hero with " + animalName); // should 'open' and release the animal inside
-
-            // TODO: Should sendMessage upwards to notify this animal was "saved" before destroying it
-            Object.Destroy(this.gameObject);
+            var hero = collision.gameObject.GetComponent<HeroMovement>();
+            hero?.takeHit();
         }
     }
-
 }
