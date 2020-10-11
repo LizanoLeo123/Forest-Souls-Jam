@@ -85,7 +85,7 @@ public class ObstaclesController : MonoBehaviour
         // Create bullets
         var bullet1 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
         var bullet2 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
-        var bullet3 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
+        //var bullet3 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
 
         // Hide gun after 1 second
         Invoke("HideGun", 1.0f);
