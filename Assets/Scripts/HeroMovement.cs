@@ -19,7 +19,7 @@ public class HeroMovement : MonoBehaviour
 
     public Text healthLabel;
 
-    //public GameManager gameManager;
+    public GameManager gameManager;
 
     private GameObject hero;
 
@@ -35,17 +35,15 @@ public class HeroMovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetAxisRaw("Horizontal") == -1 && hero.transform.position.x <= -4.5)
+        if (Input.GetAxisRaw("Horizontal") == -1 && hero.transform.position.x <= -2.5)
         {
-            hero.transform.position = new Vector3(-4.5f, hero.transform.position.y, hero.transform.position.z);
+            hero.transform.position = new Vector3(-2.5f, hero.transform.position.y, hero.transform.position.z);
         } else if (Input.GetAxisRaw("Horizontal") == 1 && hero.transform.position.x >= 1.5)
         {
             hero.transform.position = new Vector3(1.5f, hero.transform.position.y, hero.transform.position.z);
         }
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
-        isDead = animator.GetBool("isDead");
 
         animator.SetFloat("heroSpeed", Mathf.Abs(horizontalMove));
 
@@ -89,7 +87,7 @@ public class HeroMovement : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("isDead", true);
-        //gameManager.gameFinished = true;
+        gameManager.gameFinished = true;
     }
 }
 
