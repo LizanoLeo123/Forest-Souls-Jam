@@ -1725,7 +1725,7 @@ MonoBehaviour:
     type: 3}
   prefabBullets: {fileID: 4324402872146831164, guid: f296240c3c9aebf49994a75bb641038e,
     type: 3}
-  prefabGun: {fileID: 3444148651860261718, guid: a3cf08fe990f0b94e838202cf0d29048,
+  prefabCrate: {fileID: 6787747730797713286, guid: 129cb2412e3e9e54083ed93a6a0ede7f,
     type: 3}
   prefabBoomerang: {fileID: 0}
 --- !u!4 &905596222

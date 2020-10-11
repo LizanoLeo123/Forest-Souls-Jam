@@ -9,22 +9,30 @@ public class ObstaclesController : MonoBehaviour
     public GameObject prefabAnimalCage;
     public GameObject prefabRock;
     public GameObject prefabBullets;
+    public GameObject prefabCrate;
     public GameObject prefabBoomerang;
 
-    private List<CageController> cages = new List<CageController>();
     private Bounds cameraBounds;
     private Vector3 startPosition;
     private GameObject hunter = null;
 
     private HunterController hunterCt = null;
-    // This script will simply instantiate the Prefab when the game starts.
+
+    private List<KeyValuePair<ObstacleType, int>> obstaclesWeights = new List<KeyValuePair<ObstacleType, int>>(4);
+
     void Start()
     {
         cameraBounds = Camera.main.OrthographicBounds();
         startPosition = new Vector3(cameraBounds.max.x, 0, 0);
-        
+
         hunter = GameObject.Find("Hunter");
         hunterCt = hunter.GetComponent<HunterController>();
+
+        // Obstacles weights
+        obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Rocks, 30));
+        obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Crate, 30));
+        obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Gun, 30));
+        obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.AnimalCage, 10));
     }
 
     // Update is called once per frame
@@ -33,25 +41,43 @@ public class ObstaclesController : MonoBehaviour
         // TODO: temp keycode to instantiate a new cage prefab
         if (Input.GetKeyDown(KeyCode.O))
         {
-            startPosition = hunter.transform.position + new Vector3(-0.2f, -0.25f, 0);
             NewObstacle();
         }
     }
 
+    // New obstacle
+    private enum ObstacleType
+    {
+        Crate,
+        Rocks,
+        Gun,
+        AnimalCage
+    }
+
+    private bool obstaclePending = false;
     private void NewObstacle()
     {
-        int obstacleCode = 2; // Random.Range(0, 3);
+        if (obstaclePending)
+            return;
+
+        obstaclePending = true;
+        ObstacleType obstacleCode = GetNewObstacleRandom();
+
         switch (obstacleCode)
         {
-            case 0:
+            case ObstacleType.AnimalCage:
                 hunterCt.ThrowBox();
-                Invoke("ThrowNewAnimalCage", 2.0f);
+                Invoke("ThrowNewAnimalCage", 1.0f);
                 break;
-            case 1:
+            case ObstacleType.Crate:
+                hunterCt.ThrowBox();
+                Invoke("ThrowNewCrate", 1.0f);
+                break;
+            case ObstacleType.Rocks:
                 hunterCt.ThrowRock();
-                Invoke("ThrowRocks", 2.0f);
+                Invoke("ThrowRocks", 1.0f);
                 break;
-            case 2:
+            case ObstacleType.Gun:
                 hunterCt.Shoot();
                 Invoke("FireShotgun", 0.85f);
                 break;
@@ -62,30 +88,67 @@ public class ObstaclesController : MonoBehaviour
         //Invoke("NewObstacle", 3.0f);
     }
 
+
+    private ObstacleType GetNewObstacleRandom()
+    {
+        int val = Random.Range(0, 100);
+        int lower = 0;
+        int upper = 0;
+        foreach (var ob in obstaclesWeights)
+        {
+            upper += ob.Value;
+            if (lower <= val && val < upper)
+                return ob.Key;
+            lower += ob.Value;
+        }
+        return ObstacleType.Rocks;
+    }
+
     private static List<string> animals = new List<string>() { "monkey", "snake", "sloth" };
+
+
+    // Offsets for each obstacle starting point
+    private static readonly Vector3 offset_cage = new Vector3(-0.4f, 0, 0);
+    private static readonly Vector3 offset_rocks = new Vector3(-0.4f, -0.25f, 0);
+    private static readonly Vector3 offset_gun = new Vector3(-0.2f, -0.25f, 0);
 
     private void ThrowNewAnimalCage()
     {
+        startPosition = hunter.transform.position + offset_cage;
         var newCage = Instantiate(prefabAnimalCage, startPosition, Quaternion.identity);
         var newCageController = newCage.GetComponent<CageController>();
 
         newCageController.animalName = animals[Random.Range(0, animals.Count)];
-        
-        // Add to array, to keep track of it
-        cages.Add(newCageController);
+
+        obstaclePending = false;
+    }
+
+    private void ThrowNewCrate()
+    {
+        startPosition = hunter.transform.position + offset_cage;
+        var newCage = Instantiate(prefabCrate, startPosition, Quaternion.identity);
+        //var newCageController = newCage.GetComponent<CageController>();
+        obstaclePending = false;
     }
 
     private void ThrowRocks()
     {
+        // Instantiate rocks
+        startPosition = hunter.transform.position + offset_rocks;
         var rock1 = Instantiate(prefabRock, startPosition, Quaternion.identity);
-        var rock2 = Instantiate(prefabRock, startPosition, Quaternion.identity);
-        var rock3 = Instantiate(prefabRock, startPosition, Quaternion.identity);
+        //var rock2 = Instantiate(prefabRock, startPosition, Quaternion.identity);
+        //var rock3 = Instantiate(prefabRock, startPosition, Quaternion.identity);
+
+        obstaclePending = false;
     }
 
     private void FireShotgun()
     {
-        // Create bullets
+        startPosition = hunter.transform.position + offset_gun;
+
         var bullet1 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
         var bullet2 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
+
+        obstaclePending = false;
     }
 }

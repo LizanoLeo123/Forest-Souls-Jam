@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CageController : MonoBehaviour
 {
-    public string animalName = "";
+    public string animalName = null;
     private Rigidbody2D rb2D;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +36,20 @@ public class CageController : MonoBehaviour
     {
         if (collision.gameObject.name == "Hero")
         {
-            Debug.Log("Collision with Hero with " + animalName); // should 'open' and release the animal inside
+            if (!string.IsNullOrEmpty(animalName))
+            {
+                // Its an animal cage
+                Debug.Log("Collision with Hero with " + animalName); // should 'open' and release the animal inside
 
-            // TODO: Should sendMessage upwards to notify this animal was "saved" before destroying it
-            Object.Destroy(this.gameObject);
+                // TODO: Should sendMessage upwards to notify this animal was "saved" before destroying it
+                Object.Destroy(this.gameObject);
+            }
+            else
+            {
+                // Its a normal crate, then hit the Hero
+                var hero = collision.gameObject.GetComponent<HeroMovement>();
+                hero?.takeHit();
+            }
         }
     }
 
