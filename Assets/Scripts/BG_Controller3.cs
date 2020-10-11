@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BG_Controller : MonoBehaviour
+public class BG_Controller3 : MonoBehaviour
 {
     public GameObject _backgroundContainer;
     public GameObject[] _backgroundsArray;
@@ -30,12 +30,12 @@ public class BG_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameStart==true && gameFinished==false)
+        if (gameStart == true && gameFinished == false)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
-        
-        if(_previousBG.transform.position.x + _bgSize < _screenSize.x && _outOfScreen == false)
+
+        if (_previousBG.transform.position.x + _bgSize < _screenSize.x && _outOfScreen == false)
         {
             //Debug.Log("A");
             _outOfScreen = true;
@@ -46,7 +46,7 @@ public class BG_Controller : MonoBehaviour
 
     void MeazureScreen()
     {
-        _screenSize = new Vector3(Camera.main.ScreenToWorldPoint(new Vector3(0,0,0)).x +5f, 0, 0);
+        _screenSize = new Vector3(Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x + 5f, 0, 0);
     }
 
     void DestroyPrevious()
@@ -71,11 +71,11 @@ public class BG_Controller : MonoBehaviour
 
     void CreateBackground()
     {
-        _bgCounter +=  1;
+        _bgCounter += 1;
         _bgSelector = Random.Range(0, _backgroundsArray.Length);
         GameObject BG = Instantiate(_backgroundsArray[_bgSelector]);
         BG.SetActive(true);
-        BG.name = "Background_" + _bgCounter.ToString();
+        BG.name = "Background3_" + _bgCounter.ToString();
         BG.transform.parent = gameObject.transform;
         placeBackground();
 
@@ -84,9 +84,9 @@ public class BG_Controller : MonoBehaviour
 
     void placeBackground()
     {
-        string previous = "Background_" + (_bgCounter - 1).ToString(); //Background_0
+        string previous = "Background3_" + (_bgCounter - 1).ToString(); //Background_0
         _previousBG = GameObject.Find(previous);
-        string current = "Background_" + _bgCounter.ToString(); //Background_1
+        string current = "Background3_" + _bgCounter.ToString(); //Background_1
         _currentBG = GameObject.Find(current);
 
         MeazureBackground();
