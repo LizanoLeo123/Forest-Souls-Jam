@@ -14,6 +14,7 @@ public class HeroMovement : MonoBehaviour
     bool isDead = false;
 
     // Update is called once per frame
+
     void Update()
     {
 
@@ -28,6 +29,7 @@ public class HeroMovement : MonoBehaviour
             jump = true;
             
             animator.SetBool("isJumping", true);
+
         }
 
 
