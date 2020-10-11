@@ -28,20 +28,16 @@ public class BulletController : MonoBehaviour
     {
         // Force when thrown
         var velocityX = Random.Range(-15, -30);
-        var velocityY = Random.Range(1, 3);
+        var velocityY = Random.Range(-1, 1);
         rb2D.velocity = new Vector2(velocityX, velocityY);
-
-        // Angle
-        var angle = Random.Range(-5, 5);
-        rb2D.SetRotation(angle);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Hero")
         {
-            Debug.Log("Bullet collision");
-            // TODO: Should "kill" the hero
+            var hero = collision.gameObject.GetComponent<HeroMovement>();
+            hero?.takeHit();
         }
     }
 }

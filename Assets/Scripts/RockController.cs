@@ -40,8 +40,8 @@ public class RockController : MonoBehaviour
     {
         if (collision.gameObject.name == "Hero")
         {
-            Debug.Log("Rock collision");
-            // TODO: Should "kill" the hero
+            var hero = collision.gameObject.GetComponent<HeroMovement>();
+            hero?.takeHit();
         }
     }
 }

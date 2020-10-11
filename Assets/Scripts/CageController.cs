@@ -10,7 +10,6 @@ public class CageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello " + animalName);
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         throwIt();
     }

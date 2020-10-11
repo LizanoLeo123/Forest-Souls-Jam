@@ -235,9 +235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabAnimalCage: {fileID: 5917554005204267799, guid: bd2b7947d263785408345cedc066bd41,
     type: 3}
-  prefabRock: {fileID: 5949907689649181639, guid: b9dff63ff2a881d469fed0f9cf9c0673,
+  prefabRock: {fileID: 6593352416240594262, guid: b9dff63ff2a881d469fed0f9cf9c0673,
     type: 3}
-  prefabBullets: {fileID: 624189746181144851, guid: f296240c3c9aebf49994a75bb641038e,
+  prefabBullets: {fileID: 4324402872146831164, guid: f296240c3c9aebf49994a75bb641038e,
     type: 3}
   prefabGun: {fileID: 3444148651860261718, guid: a3cf08fe990f0b94e838202cf0d29048,
     type: 3}

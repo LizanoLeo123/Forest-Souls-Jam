@@ -47,4 +47,9 @@ public class HeroMovement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump, isDead);
         jump = false;
     }
+
+    public void takeHit()
+    {
+        Debug.LogWarning("Took hit...");
+    }
 }
