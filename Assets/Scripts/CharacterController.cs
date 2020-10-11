@@ -60,6 +60,7 @@ public class CharacterController : MonoBehaviour
 		if (isDead == false)
         {
 			//only control the player if grounded or airControl is turned on
+
 			if (m_Grounded || m_AirControl)
 			{
 
