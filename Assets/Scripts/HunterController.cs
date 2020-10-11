@@ -45,11 +45,11 @@ public class HunterController : MonoBehaviour
 
     public void ThrowBox()
     {
-        hunterArmAnimator.SetTrigger("throwBox");
+        hunterArmAnimator.SetTrigger("ThrowBox");
     }
 
     public void ThrowRock()
     {
-        hunterArmAnimator.SetTrigger("throwRock");
+        hunterArmAnimator.SetTrigger("ThrowRock");
     }
 }

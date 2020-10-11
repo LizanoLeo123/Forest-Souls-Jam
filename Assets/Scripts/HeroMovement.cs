@@ -13,11 +13,14 @@ public class HeroMovement : MonoBehaviour
     bool jump = false;
     bool isDead = false;
 
+    //public GameManager gameManager;
+
     private GameObject hero;
 
     void Awake()
     {
         hero = GameObject.Find("Hero");
+
     }
 
     // Update is called once per frame
@@ -32,8 +35,6 @@ public class HeroMovement : MonoBehaviour
         {
             hero.transform.position = new Vector3(2.5f, hero.transform.position.y, hero.transform.position.z);
         }
-
-        isDead = animator.GetBool("isDead");
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -65,6 +66,13 @@ public class HeroMovement : MonoBehaviour
     public void takeHit()
     {
         Debug.LogWarning("Took hit...");
+    }
+
+    public void KillPlayer()
+    {
+        isDead = true;
+        animator.SetBool("isDead", true);
+        //gameManager.gameFinished = true;
     }
 }
 
