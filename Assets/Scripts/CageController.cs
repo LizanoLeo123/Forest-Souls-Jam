@@ -7,6 +7,8 @@ public class CageController : MonoBehaviour
     public string animalName = null;
     private Rigidbody2D rb2D;
 
+    private int damage = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +50,7 @@ public class CageController : MonoBehaviour
             {
                 // Its a normal crate, then hit the Hero
                 var hero = collision.gameObject.GetComponent<HeroMovement>();
-                hero?.takeHit();
+                hero?.takeHit(damage);
             }
         }
     }

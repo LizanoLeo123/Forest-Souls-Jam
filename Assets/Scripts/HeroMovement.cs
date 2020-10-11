@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroMovement : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class HeroMovement : MonoBehaviour
     bool jump = false;
     bool isDead = false;
 
+
+    public int health = 100;
+
+    public Text healthLabel;
+
     //public GameManager gameManager;
 
     private GameObject hero;
@@ -22,6 +28,7 @@ public class HeroMovement : MonoBehaviour
         hero = GameObject.Find("Hero");
 
     }
+
 
     // Update is called once per frame
 
@@ -63,9 +70,17 @@ public class HeroMovement : MonoBehaviour
         jump = false;
     }
 
-    public void takeHit()
+    public void takeHit(int damage)
     {
-        Debug.LogWarning("Took hit...");
+
+        health -= damage;
+        
+        healthLabel.text = "Health: "+health.ToString(); 
+
+        if(health <= 0){
+            healthLabel.text = "Health: 0"; 
+            KillPlayer();
+        }
     }
 
     public void KillPlayer()
