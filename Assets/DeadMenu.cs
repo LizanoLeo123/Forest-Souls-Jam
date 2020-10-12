@@ -37,7 +37,6 @@ public class DeadMenu : MonoBehaviour
 
     public void Pause(){
     	deadMenuUI.SetActive(true);
-    	//Time.timeScale = 0f;
     	GameOver = true;
     }
 
