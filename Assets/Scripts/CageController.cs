@@ -44,10 +44,30 @@ public class CageController : MonoBehaviour
             if (!string.IsNullOrEmpty(animalName))
             {
                 // Its an animal cage
-                Debug.Log("Collision with Hero with " + animalName); // should 'open' and release the animal inside
+                //Debug.Log("Collision with Hero with " + animalName); // should 'open' and release the animal inside
+                switch (animalName)
+                {
+                    case "frog":
+                        //Instantiate frog
+                        Instantiate(animals[0], transform.position, Quaternion.identity);
+                        break;
+                    case "snake":
+                        //Instantiate snake
+                        Instantiate(animals[1], transform.position, Quaternion.identity);
+                        break;
+                    case "toucan":
+                        //Instantiate toucan
+                        Instantiate(animals[2], transform.position, Quaternion.identity);
+                        break;
+                    case "spider":
+                        //Instantiate spider
+                        Instantiate(animals[3], transform.position, Quaternion.identity);
+                        break;
+                }
 
                 // TODO: Should sendMessage upwards to notify this animal was "saved" before destroying it
-                Invoke("Dispose", 1.0f);
+                //Invoke("Dispose", 1.0f);
+                Destroy(gameObject);
             }
             else
             {
