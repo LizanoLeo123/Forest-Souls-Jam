@@ -30,9 +30,7 @@ public class DeadMenu : MonoBehaviour
 
     public void Restart(){
     	deadMenuUI.SetActive(false);
-        FindObjectOfType<AudioManager>().Stop("MatchSummary");
-        FindObjectOfType<AudioManager>().Play("MatchTheme");
-        
+        FindObjectOfType<AudioManager>().Stop("MatchSummary");        
     	Time.timeScale = 1f;
     	GameOver = false;
     	SceneManager.LoadScene(pricipalScene);

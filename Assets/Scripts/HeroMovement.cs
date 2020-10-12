@@ -73,6 +73,7 @@ public class HeroMovement : MonoBehaviour
     {
 
         health -= damage;
+        FindObjectOfType<AudioManager>().Play("kidDamage");
         
         healthLabel.text = "Health: "+health.ToString(); 
 
@@ -87,6 +88,7 @@ public class HeroMovement : MonoBehaviour
 
     public void KillPlayer()
     {
+        FindObjectOfType<AudioManager>().Play("kidDefeat");
         isDead = true;
         animator.SetBool("isDead", true);
         gameManager.gameFinished = true;
