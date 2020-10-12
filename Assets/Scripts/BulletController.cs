@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour
     {
         // Force when thrown
         var velocityX = Random.Range(-15, -30);
-        var velocityY = Random.Range(-5, 5);
+        var velocityY = Random.Range(-5, -3);
         rb2D.velocity = new Vector2(velocityX, velocityY);
 
         // Angle
