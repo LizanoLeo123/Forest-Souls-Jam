@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +26,7 @@ public class HeroMovement : MonoBehaviour
     void Awake()
     {
         hero = GameObject.Find("Hero");
+        //FindObjectOfType<AudioManager>().Play("MatchTheme");
 
     }
 
@@ -33,14 +34,10 @@ public class HeroMovement : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetAxisRaw("Horizontal") == -1 && hero.transform.position.x <= -5)
-        {
-            hero.transform.position = new Vector3(-5f, hero.transform.position.y, hero.transform.position.z);
-        } else if (Input.GetAxisRaw("Horizontal") == 1 && hero.transform.position.x >= 1.5)
-        {
+        if(hero.transform.position.x <= -4)
+            hero.transform.position = new Vector3(-4f, hero.transform.position.y, hero.transform.position.z);
+        if(hero.transform.position.x >= 1.5)
             hero.transform.position = new Vector3(1.5f, hero.transform.position.y, hero.transform.position.z);
-        }
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -51,9 +48,7 @@ public class HeroMovement : MonoBehaviour
             jump = true;
             
             animator.SetBool("isJumping", true);
-
         }
-
     }
 
     public void OnLanding()
@@ -92,4 +87,3 @@ public class HeroMovement : MonoBehaviour
         gameManager.gameFinished = true;
     }
 }
-
