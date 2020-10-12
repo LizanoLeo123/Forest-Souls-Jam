@@ -6,6 +6,7 @@ public class CageController : MonoBehaviour
 {
     public string animalName = null;
     private Rigidbody2D rb2D;
+    private AudioSource sound = null;
 
     private int damage = 10;
 
@@ -13,6 +14,7 @@ public class CageController : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        sound = gameObject.GetComponent<AudioSource>();
         throwIt();
     }
 
@@ -38,13 +40,14 @@ public class CageController : MonoBehaviour
     {
         if (collision.gameObject.name == "Hero")
         {
+            sound?.Play();
             if (!string.IsNullOrEmpty(animalName))
             {
                 // Its an animal cage
                 Debug.Log("Collision with Hero with " + animalName); // should 'open' and release the animal inside
 
                 // TODO: Should sendMessage upwards to notify this animal was "saved" before destroying it
-                Object.Destroy(this.gameObject);
+                Invoke("Dispose", 1.0f);
             }
             else
             {
@@ -53,6 +56,11 @@ public class CageController : MonoBehaviour
                 hero?.takeHit(damage);
             }
         }
+    }
+
+    private void Dispose()
+    {
+        Destroy(this.gameObject);
     }
 
 }
