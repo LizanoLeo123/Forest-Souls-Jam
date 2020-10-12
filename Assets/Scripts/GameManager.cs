@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool gameFinished;
+    public bool startGame;
 
     private GameObject _heroPrefab;
 
@@ -19,6 +20,15 @@ public class GameManager : MonoBehaviour
 
     private HeroMovement _hero;
 
+    private GameObject _car;
+    private GameObject _hunter;
+    private GameObject _hand;
+    private Animator _carAnimator;
+    private Animator _hunterAnimator;
+    private SpriteRenderer _hunterSprite;
+
+    public GameObject intro;
+
     private DeadMenu _deadMenu;
     // Start is called before the first frame update
     void Start()
@@ -29,8 +39,9 @@ public class GameManager : MonoBehaviour
         _bgClose = GameObject.Find("BackgroundClose").GetComponent<BG_Controller3>();
 
         _ground = GameObject.Find("Ground");
-        _ground.SetActive(false);
         _groundAnimated = GameObject.Find("GroundAnimated");
+        _groundAnimated.SetActive(false);
+        
 
         _score = GameObject.Find("Timer").GetComponent<Score>();
 
@@ -39,7 +50,22 @@ public class GameManager : MonoBehaviour
         _heroPrefab = GameObject.Find("Hero");
         _heroPrefab.SetActive(false);
 
+        _car = GameObject.Find("Car");
+        _hunter = GameObject.Find("Hunter");
+        _hunterSprite = _hunter.GetComponent<SpriteRenderer>();
+        _hand = GameObject.Find("HunterArm");
+        _carAnimator = GameObject.Find("Car").GetComponent<Animator>();
+        _hunterAnimator = GameObject.Find("Hunter").GetComponent<Animator>();
+        //Activate hunter
+        _hand.SetActive(false);
+        //_hunter.SetActive(false);
+        _hunterSprite.enabled = false;
+        _car.SetActive(false);
+
+        StartCoroutine(StartGameAfterIntro());
         _deadMenu = GameObject.Find("Canvas").GetComponent<DeadMenu>();
+
+
     }
 
     // Update is called once per frame
@@ -48,6 +74,10 @@ public class GameManager : MonoBehaviour
         if(gameFinished == true)
         {
             FinishGame();
+        }
+        if (startGame)
+        {
+            StartGame();
         }
     }
 
@@ -61,13 +91,21 @@ public class GameManager : MonoBehaviour
         _bgMid.gameStart = true;
         _bgClose.gameStart = true;
 
-        //Stop timer
-        _score.start = false;
+        //Activate hunter
+        _hand.SetActive(true);
 
+        //_hunter.SetActive(true);
+        _hunterSprite.enabled = true;
+        _car.SetActive(true);
+
+        //Start timer
+        _score.start = true;
+        intro.SetActive(false);
     }
 
     private void FinishGame()
     {
+        startGame = false;
         //Stop ground movement
         _ground.SetActive(true);
         _groundAnimated.SetActive(false);
@@ -79,6 +117,12 @@ public class GameManager : MonoBehaviour
         //Stop timer
         _score.start = false;
 
+        //Animations of the car and hunter
+        _carAnimator.SetTrigger("GameFinished");
+        _hunterAnimator.SetTrigger("GameFinished");
+
+        _hand.SetActive(false);
+
         //Show death menu
         //_hero.KillPlayer();
         StartCoroutine(ShowGameOver());
@@ -89,5 +133,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         
         _deadMenu.Pause();
+    }
+
+    private IEnumerator StartGameAfterIntro()
+    {
+        yield return new WaitForSeconds(16f);
+        StartGame();
     }
 }
