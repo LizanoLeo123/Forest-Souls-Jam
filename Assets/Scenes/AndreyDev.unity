@@ -3268,7 +3268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health: 200'
+  m_Text: 'Health: 100'
 --- !u!222 &1105312724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3680,7 +3680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadMenuUI: {fileID: 1915350033}
   menuScene: MainMenu
-  pricipalScene: MainScene
+  pricipalScene: AndreyDev
 --- !u!114 &1226871131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3974,6 +3974,11 @@ PrefabInstance:
       propertyPath: healthLabel
       value: 
       objectReference: {fileID: 1105312723}
+    - target: {fileID: 277030552494656038, guid: 7ced8aa538592354184b0bb9a2d9ad7c,
+        type: 3}
+      propertyPath: deadMenuUI
+      value: 
+      objectReference: {fileID: 1915350033}
     - target: {fileID: 277030552494656095, guid: 7ced8aa538592354184b0bb9a2d9ad7c,
         type: 3}
       propertyPath: m_Name
