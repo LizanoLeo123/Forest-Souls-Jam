@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +26,7 @@ public class HeroMovement : MonoBehaviour
     void Awake()
     {
         hero = GameObject.Find("Hero");
-        FindObjectOfType<AudioManager>().Play("MatchTheme");
+        //FindObjectOfType<AudioManager>().Play("MatchTheme");
 
     }
 
@@ -87,4 +87,3 @@ public class HeroMovement : MonoBehaviour
         gameManager.gameFinished = true;
     }
 }
-

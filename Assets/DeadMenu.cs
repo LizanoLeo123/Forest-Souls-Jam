@@ -46,6 +46,7 @@ public class DeadMenu : MonoBehaviour
 
     public void LoadMenu(){
     	Time.timeScale = 1f;
+        FindObjectOfType<AudioManager>().Stop("MatchSummary");
     	SceneManager.LoadScene(menuScene);
     }
 
