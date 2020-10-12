@@ -90,6 +90,10 @@ public class ObstaclesController : MonoBehaviour
         //Invoke("NewObstacle", 3.0f);
     }
 
+    public void StopObstacles()
+    {
+        CancelInvoke();
+    }
 
     private ObstacleType GetNewObstacleRandom()
     {
