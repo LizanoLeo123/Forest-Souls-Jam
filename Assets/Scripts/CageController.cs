@@ -77,7 +77,7 @@ public class CageController : MonoBehaviour
                         break;
                     case "spider":
                         //Instantiate spider
-                        Instantiate(animals[0], transform.position, Quaternion.identity);
+                        Instantiate(animals[3], transform.position, Quaternion.identity);
                         break;
                 }
                     
