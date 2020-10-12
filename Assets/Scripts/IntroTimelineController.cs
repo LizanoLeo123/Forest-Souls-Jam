@@ -18,6 +18,8 @@ public class IntroTimelineController : MonoBehaviour
         //animalCageIntro = GameObject.Find("IntroTimelineManager/AnimalCageIntro");
         _groundAnimated = GameObject.Find("Grid/GroundAnimated");
         
+        FindObjectOfType<AudioManager>().Play("People");
+        
     }
     // Start is called before the first frame update
     void Start()

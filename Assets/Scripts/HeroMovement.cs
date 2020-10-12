@@ -26,7 +26,6 @@ public class HeroMovement : MonoBehaviour
     void Awake()
     {
         hero = GameObject.Find("Hero");
-        FindObjectOfType<AudioManager>().Play("MatchTheme");
 
     }
 

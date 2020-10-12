@@ -141,6 +141,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartGameAfterIntro()
     {
         yield return new WaitForSeconds(18f);
+        FindObjectOfType<AudioManager>().Play("MatchTheme");
         StartGame();
     }
 }
