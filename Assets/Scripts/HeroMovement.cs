@@ -34,8 +34,8 @@ public class HeroMovement : MonoBehaviour
 
     void Update()
     {
-        if(hero.transform.position.x <= -4)
-            hero.transform.position = new Vector3(-4f, hero.transform.position.y, hero.transform.position.z);
+        if(hero.transform.position.x <= -4.5)
+            hero.transform.position = new Vector3(-4.5f, hero.transform.position.y, hero.transform.position.z);
         if(hero.transform.position.x >= 1.5)
             hero.transform.position = new Vector3(1.5f, hero.transform.position.y, hero.transform.position.z);
 
