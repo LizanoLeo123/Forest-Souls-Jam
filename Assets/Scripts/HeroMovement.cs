@@ -35,9 +35,9 @@ public class HeroMovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetAxisRaw("Horizontal") == -1 && hero.transform.position.x <= -2.5)
+        if (Input.GetAxisRaw("Horizontal") == -1 && hero.transform.position.x <= -5)
         {
-            hero.transform.position = new Vector3(-2.5f, hero.transform.position.y, hero.transform.position.z);
+            hero.transform.position = new Vector3(-5f, hero.transform.position.y, hero.transform.position.z);
         } else if (Input.GetAxisRaw("Horizontal") == 1 && hero.transform.position.x >= 1.5)
         {
             hero.transform.position = new Vector3(1.5f, hero.transform.position.y, hero.transform.position.z);

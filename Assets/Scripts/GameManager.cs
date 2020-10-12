@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGameAfterIntro()
     {
-        yield return new WaitForSeconds(16f);
+        yield return new WaitForSeconds(18f);
         StartGame();
     }
 }
