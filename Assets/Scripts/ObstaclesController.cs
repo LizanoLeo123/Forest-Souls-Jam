@@ -34,7 +34,7 @@ public class ObstaclesController : MonoBehaviour
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Gun, 30));
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.AnimalCage, 10));
 
-        InvokeRepeating("NewObstacle", 30.0f, 2f);
+        InvokeRepeating("NewObstacle", 20.0f, 2f);
     }
 
     // Update is called once per frame

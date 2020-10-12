@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
 
         //Start timer
         _score.start = true;
-        intro.SetActive(true);
+        intro.SetActive(false);
     }
 
     private void FinishGame()
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGameAfterIntro()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(16f);
         StartGame();
     }
 }
