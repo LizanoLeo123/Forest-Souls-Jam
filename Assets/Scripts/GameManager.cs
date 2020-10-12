@@ -126,6 +126,9 @@ public class GameManager : MonoBehaviour
         //Show death menu
         //_hero.KillPlayer();
         StartCoroutine(ShowGameOver());
+
+        var obstacles = GameObject.Find("Obstacles")?.GetComponent<ObstaclesController>();
+        obstacles.StopObstacles();
     }
 
     private IEnumerator ShowGameOver()
