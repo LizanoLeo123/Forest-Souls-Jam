@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
     private Rigidbody2D rb2D;
     private bool destroying = false;
+    private AudioSource sound = null;
 
     public int damage = 30;
 
@@ -13,6 +14,7 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        sound = gameObject.GetComponent<AudioSource>();
         throwIt();
     }
 
@@ -30,17 +32,18 @@ public class BulletController : MonoBehaviour
     {
         // Force when thrown
         var velocityX = Random.Range(-15, -30);
-        var velocityY = Random.Range(-5, 5);
+        var velocityY = Random.Range(-5, -3);
         rb2D.velocity = new Vector2(velocityX, velocityY);
 
         // Angle
         var angle = Random.Range(-20, 20);
         // rb2D.SetRotation(angle);
+
+        sound.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
         if (collision.gameObject.name == "Hero")
         {
             var hero = collision.gameObject.GetComponent<HeroMovement>();

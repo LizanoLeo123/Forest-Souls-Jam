@@ -8,6 +8,7 @@ public class CageController : MonoBehaviour
     public GameObject[] animals;
 
     private Rigidbody2D rb2D;
+    private AudioSource sound = null;
 
     private int damage = 10;
 
@@ -17,6 +18,7 @@ public class CageController : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        sound = gameObject.GetComponent<AudioSource>();
         throwIt();
         StartCoroutine(MoveAfterLanding());
     }
@@ -57,6 +59,7 @@ public class CageController : MonoBehaviour
     {
         if (collision.gameObject.name == "Hero")
         {
+            sound?.Play();
             if (!string.IsNullOrEmpty(animalName))
             {
                 // Its an animal cage
@@ -82,7 +85,7 @@ public class CageController : MonoBehaviour
                 }
                     
                 // TODO: Should sendMessage upwards to notify this animal was "saved" before destroying it
-                Object.Destroy(this.gameObject);
+                Invoke("Dispose", 1.0f);
             }
             else
             {
@@ -97,7 +100,11 @@ public class CageController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         _onGound = true;
-        Debug.Log(transform.eulerAngles.z);
+        //Debug.Log(transform.eulerAngles.z);
+    }
+    private void Dispose()
+    {
+        Destroy(this.gameObject);
     }
 
 }

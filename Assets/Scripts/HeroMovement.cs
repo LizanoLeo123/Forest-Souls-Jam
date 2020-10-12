@@ -26,9 +26,9 @@ public class HeroMovement : MonoBehaviour
     void Awake()
     {
         hero = GameObject.Find("Hero");
+        FindObjectOfType<AudioManager>().Play("MatchTheme");
 
     }
-
 
     // Update is called once per frame
 
@@ -72,6 +72,9 @@ public class HeroMovement : MonoBehaviour
         healthLabel.text = "Health: "+health.ToString(); 
 
         if(health <= 0){
+
+            FindObjectOfType<AudioManager>().Stop("MatchTheme");
+            FindObjectOfType<AudioManager>().Play("MatchSummary");
             healthLabel.text = "Health: 0"; 
             KillPlayer();
         }
