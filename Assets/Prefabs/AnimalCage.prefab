@@ -145,3 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: 
+  animals:
+  - {fileID: 300347874364549935, guid: 4209435001ea7ee4e89585d6e51201ea, type: 3}
+  - {fileID: 5753881876474877008, guid: 86f9a1581a59c4b42b519a620eb75b5d, type: 3}
+  - {fileID: 7959590155574012526, guid: a0733f23e9297254c96b1fff564a3961, type: 3}
+  - {fileID: 8072255876322854714, guid: 12630183debc9af43b039c537149adcd, type: 3}
