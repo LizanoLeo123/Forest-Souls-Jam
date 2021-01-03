@@ -175,7 +175,7 @@ public class ObstaclesController : MonoBehaviour
 
     public IEnumerator DropFirstObstacle()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(20f);
         _throwNewObstacle = true;
     }
 
