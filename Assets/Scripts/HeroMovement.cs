@@ -15,7 +15,7 @@ public class HeroMovement : MonoBehaviour
     bool isDead = false;
 
 
-    public int health = 100;
+    public int health = 10;
 
     public Text healthLabel;
 

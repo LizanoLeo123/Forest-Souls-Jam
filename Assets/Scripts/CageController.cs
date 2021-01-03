@@ -12,13 +12,13 @@ public class CageController : MonoBehaviour
 
     private int damage = 10;
 
-    private bool _onGound = false;
+    private bool _onGround = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        sound = gameObject.GetComponent<AudioSource>();
+        sound = GetComponent<AudioSource>();
         throwIt();
         StartCoroutine(MoveAfterLanding());
     }
@@ -38,7 +38,7 @@ public class CageController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_onGound)
+        if (_onGround)
         {
             
             //Debug.Log(transform.eulerAngles.z);
@@ -99,13 +99,13 @@ public class CageController : MonoBehaviour
 
     public IEnumerator MoveAfterLanding()
     {
-        yield return new WaitForSeconds(1.3f);
-        _onGound = true;
+        yield return new WaitForSeconds(1.1f);
+        _onGround = true;
         //Debug.Log(transform.eulerAngles.z);
     }
-    private void Dispose()
-    {
-        Destroy(this.gameObject);
-    }
+    //private void Dispose()
+    //{
+    //    Destroy(this.gameObject);
+    //}
 
 }
