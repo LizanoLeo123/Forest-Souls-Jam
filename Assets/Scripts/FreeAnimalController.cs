@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class FreeAnimalController : MonoBehaviour
 {
-    public BoxCollider2D collider;
-    public Rigidbody2D rb;
-
-    private void Start()
-    {
-        StartCoroutine(TurnOffPhysics());
-    }
+    public bool fly;
 
     void Update()
     {
-        transform.Translate(new Vector3(-2f, 0, 0) * Time.deltaTime);
-        if (transform.position.y == -10)
+        Move();
+        if (transform.position.x == -10)
             Destroy(gameObject);
     }
 
-    private IEnumerator TurnOffPhysics()
+    void Move()
     {
-        yield return new WaitForSeconds(1.5f);
-        collider.enabled = false;
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY & RigidbodyConstraints2D.FreezeRotation;
+        if (!fly) //If the animal is not a bird
+        {
+            if (transform.position.y > -1.8f)
+            {
+                transform.Translate(new Vector3(-2f, -2f, 0) * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(new Vector3(-2f, 0, 0) * Time.deltaTime);
+            }
+        }
+        else
+        {
+            transform.Translate(new Vector3(-2f, 0, 0) * Time.deltaTime);
+        }
     }
 }

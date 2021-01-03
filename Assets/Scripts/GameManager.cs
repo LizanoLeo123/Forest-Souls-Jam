@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private Animator _carAnimator;
     private Animator _hunterAnimator;
     private SpriteRenderer _hunterSprite;
+    private ObstaclesController _obstaclesController;
 
     public GameObject intro;
 
@@ -56,6 +57,8 @@ public class GameManager : MonoBehaviour
         _hand = GameObject.Find("HunterArm");
         _carAnimator = GameObject.Find("Car").GetComponent<Animator>();
         _hunterAnimator = GameObject.Find("Hunter").GetComponent<Animator>();
+        _obstaclesController = GameObject.Find("Obstacles").GetComponent<ObstaclesController>();
+
         //Activate hunter
         _hand.SetActive(false);
         //_hunter.SetActive(false);
@@ -120,6 +123,7 @@ public class GameManager : MonoBehaviour
         //Animations of the car and hunter
         _carAnimator.SetTrigger("GameFinished");
         _hunterAnimator.SetTrigger("GameFinished");
+        _obstaclesController._gameFinished = true;
 
         _hand.SetActive(false);
 
@@ -140,7 +144,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGameAfterIntro()
     {
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(0.1f);
         FindObjectOfType<AudioManager>().Play("MatchTheme");
         StartGame();
     }
