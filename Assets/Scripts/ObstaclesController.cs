@@ -110,7 +110,7 @@ public class ObstaclesController : MonoBehaviour
         return ObstacleType.Rocks;
     }
 
-    private static List<string> animals = new List<string>() { "monkey", "snake", "sloth" };
+    private static List<string> animals = new List<string>() { "frog", "snake", "toucan", "spider"};
 
 
     // Offsets for each obstacle starting point
