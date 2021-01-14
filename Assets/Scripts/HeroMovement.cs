@@ -23,11 +23,17 @@ public class HeroMovement : MonoBehaviour
 
     private GameObject hero;
 
+    private Renderer rend;
+    private Color c;
+
+    private bool _invulnerable;
     private bool _dead;
 
     void Awake()
     {
         hero = GameObject.Find("Hero");
+        rend = GetComponent<Renderer>();
+        c = rend.material.color;
         _dead = false;
     }
 
@@ -69,19 +75,43 @@ public class HeroMovement : MonoBehaviour
 
     public void takeHit(int damage)
     {
+        if (!_invulnerable)
+        {
+            health -= damage;
+            FindObjectOfType<AudioManager>().Play("kidDamage");
 
-        health -= damage;
-        FindObjectOfType<AudioManager>().Play("kidDamage");
-        
-        healthLabel.text = "Health: "+health.ToString(); 
+            healthLabel.text = "Health: " + health.ToString();
 
-        if(health <= 0){
-
-            FindObjectOfType<AudioManager>().Stop("MatchTheme");
-            FindObjectOfType<AudioManager>().Play("MatchSummary");
-            healthLabel.text = "Health: 0"; 
-            KillPlayer();
+            if (health <= 0)
+            {
+                FindObjectOfType<AudioManager>().Stop("MatchTheme");
+                FindObjectOfType<AudioManager>().Play("MatchSummary");
+                healthLabel.text = "Health: 0";
+                KillPlayer();
+            }
+            else
+            {
+                StartCoroutine(MakeInvulnerable());
+            }
         }
+    }
+
+    IEnumerator MakeInvulnerable()
+    {
+        _invulnerable = true;
+        int inmunitySeconds = 3;
+        for (int i = 0; i < inmunitySeconds; i++)
+        {
+            c.a = 0.5f;
+            rend.material.color = c;
+            yield return new WaitForSeconds(0.5f);
+            c.a = 1f;
+            rend.material.color = c;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        //Once three seconds has passed
+        _invulnerable = false;
     }
 
     public void KillPlayer()
