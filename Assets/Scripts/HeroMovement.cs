@@ -23,10 +23,12 @@ public class HeroMovement : MonoBehaviour
 
     private GameObject hero;
 
+    private bool _dead;
+
     void Awake()
     {
         hero = GameObject.Find("Hero");
-
+        _dead = false;
     }
 
     // Update is called once per frame
@@ -83,11 +85,15 @@ public class HeroMovement : MonoBehaviour
     }
 
     public void KillPlayer()
-    {
-        FindObjectOfType<AudioManager>().Play("kidDefeat");
-        isDead = true;
-        animator.SetBool("isDead", true);
-        gameManager.gameFinished = true;
+    {   
+        if (!_dead)
+        {
+            FindObjectOfType<AudioManager>().Play("kidDefeat");
+            isDead = true;
+            animator.SetBool("isDead", true);
+            gameManager.FinishGame();
+        }
+        _dead = true;
     }
 }
 

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool gameFinished;
-    public bool startGame;
-
     private GameObject _heroPrefab;
 
     private BG_Controller _bgFar;
@@ -34,7 +31,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameFinished = false;
         _bgFar = GameObject.Find("BackgroundFar").GetComponent<BG_Controller>();
         _bgMid = GameObject.Find("BackgroundMid").GetComponent<BG_Controller2>();
         _bgClose = GameObject.Find("BackgroundClose").GetComponent<BG_Controller3>();
@@ -74,14 +70,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameFinished == true)
-        {
-            FinishGame();
-        }
-        if (startGame)
-        {
-            StartGame();
-        }
+        //There should not be anything in the update because this class functions are big and they should not be called once per frame
     }
 
     public void StartGame()
@@ -106,9 +95,8 @@ public class GameManager : MonoBehaviour
         intro.SetActive(false);
     }
 
-    private void FinishGame()
+    public void FinishGame()
     {
-        startGame = false;
         //Stop ground movement
         _ground.SetActive(true);
         _groundAnimated.SetActive(false);
