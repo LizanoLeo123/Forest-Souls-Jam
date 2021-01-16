@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private GameObject skipIntroButton;
+
     private GameObject _heroPrefab;
 
     private BG_Controller _bgFar;
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
     public GameObject intro;
 
     private DeadMenu _deadMenu;
+
+    private bool _gameStarted;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +43,6 @@ public class GameManager : MonoBehaviour
         _groundAnimated = GameObject.Find("GroundAnimated");
         _groundAnimated.SetActive(false);
         
-
         _score = GameObject.Find("Timer").GetComponent<Score>();
 
         //This should not be here
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartGameAfterIntro());
         _deadMenu = GameObject.Find("Canvas").GetComponent<DeadMenu>();
 
-
+        skipIntroButton = GameObject.Find("SkipIntro");
     }
 
     // Update is called once per frame
@@ -75,6 +78,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        _gameStarted = true;
+        skipIntroButton.SetActive(false);
         _heroPrefab.SetActive(true);
         _ground.SetActive(false);
         _groundAnimated.SetActive(true);
@@ -93,6 +98,12 @@ public class GameManager : MonoBehaviour
         //Start timer
         _score.start = true;
         intro.SetActive(false);
+
+        //StartThrowing obstacles
+        _obstaclesController.StartGame();
+
+        //Play game music
+        FindObjectOfType<AudioManager>().Play("MatchTheme");
     }
 
     public void FinishGame()
@@ -133,7 +144,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartGameAfterIntro()
     {
         yield return new WaitForSeconds(18f);
-        FindObjectOfType<AudioManager>().Play("MatchTheme");
-        StartGame();
+        if(!_gameStarted) //If not skipped intro
+            StartGame();
     }
 }

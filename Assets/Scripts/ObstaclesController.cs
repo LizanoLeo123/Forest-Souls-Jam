@@ -41,7 +41,7 @@ public class ObstaclesController : MonoBehaviour
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Gun, 30));
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.AnimalCage, 10));
 
-        StartCoroutine(DropFirstObstacle());
+        
 
         //InvokeRepeating("NewObstacle", 20.0f, 2f);
     }
@@ -103,6 +103,11 @@ public class ObstaclesController : MonoBehaviour
         }
 
         //Invoke("NewObstacle", 3.0f);
+    }
+
+    public void StartGame()
+    {
+        StartCoroutine(DropFirstObstacle());
     }
 
     public void StopObstacles()
@@ -175,7 +180,7 @@ public class ObstaclesController : MonoBehaviour
 
     public IEnumerator DropFirstObstacle()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(2f);
         _throwNewObstacle = true;
     }
 
