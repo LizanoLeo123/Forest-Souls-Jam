@@ -140,6 +140,7 @@ MonoBehaviour:
     m_Bits: 55
   m_GroundCheck: {fileID: 277030552550770039}
   m_CeilingCheck: {fileID: 277030551961876970}
+  fallingThreshold: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -188,7 +189,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.09899852}
+  m_Offset: {x: 0, y: 0.085980296}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -199,7 +200,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5512732, y: 0.732928}
+  m_Size: {x: 0.5512732, y: 0.70689154}
   m_EdgeRadius: 0
 --- !u!58 &277030552494656037
 CircleCollider2D:
@@ -251,6 +252,9 @@ MonoBehaviour:
   controller: {fileID: 277030552494656032}
   animator: {fileID: 277030552494656039}
   runSpeed: 40
+  health: 100
+  healthLabel: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &277030552550770038
 GameObject:
   m_ObjectHideFlags: 0

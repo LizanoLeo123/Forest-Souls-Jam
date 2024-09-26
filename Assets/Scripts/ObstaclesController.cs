@@ -20,6 +20,11 @@ public class ObstaclesController : MonoBehaviour
 
     private List<KeyValuePair<ObstacleType, int>> obstaclesWeights = new List<KeyValuePair<ObstacleType, int>>(4);
 
+    private bool _throwNewObstacle;
+    
+    [HideInInspector]
+    public  bool _gameFinished;
+
     void Start()
     {
         cameraBounds = Camera.main.OrthographicBounds();
@@ -28,20 +33,32 @@ public class ObstaclesController : MonoBehaviour
         hunter = GameObject.Find("Hunter");
         hunterCt = hunter.GetComponent<HunterController>();
 
+        _gameFinished = false;
+
         // Obstacles weights
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Rocks, 30));
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Crate, 30));
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.Gun, 30));
         obstaclesWeights.Add(new KeyValuePair<ObstacleType, int>(ObstacleType.AnimalCage, 10));
+
+        
+
+        //InvokeRepeating("NewObstacle", 20.0f, 2f);
     }
 
     // Update is called once per frame
     void Update()
     {
         // TODO: temp keycode to instantiate a new cage prefab
-        if (Input.GetKeyDown(KeyCode.O))
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    NewObstacle();
+        //}
+        if (_throwNewObstacle && !_gameFinished)
         {
             NewObstacle();
+            _throwNewObstacle = false;
+            StartCoroutine(WaitForNewObstacle());
         }
     }
 
@@ -88,6 +105,15 @@ public class ObstaclesController : MonoBehaviour
         //Invoke("NewObstacle", 3.0f);
     }
 
+    public void StartGame()
+    {
+        StartCoroutine(DropFirstObstacle());
+    }
+
+    public void StopObstacles()
+    {
+        CancelInvoke();
+    }
 
     private ObstacleType GetNewObstacleRandom()
     {
@@ -104,7 +130,7 @@ public class ObstaclesController : MonoBehaviour
         return ObstacleType.Rocks;
     }
 
-    private static List<string> animals = new List<string>() { "monkey", "snake", "sloth" };
+    private static List<string> animals = new List<string>() { "frog", "snake", "toucan", "spider"};
 
 
     // Offsets for each obstacle starting point
@@ -150,5 +176,17 @@ public class ObstaclesController : MonoBehaviour
         var bullet2 = Instantiate(prefabBullets, startPosition, Quaternion.identity);
 
         obstaclePending = false;
+    }
+
+    public IEnumerator DropFirstObstacle()
+    {
+        yield return new WaitForSeconds(2f);
+        _throwNewObstacle = true;
+    }
+
+    public IEnumerator WaitForNewObstacle()
+    {
+        yield return new WaitForSeconds(3f);
+        _throwNewObstacle = true;
     }
 }

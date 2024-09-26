@@ -6,6 +6,7 @@ public class RockController : MonoBehaviour
 {
     private Rigidbody2D rb2D;
     private bool destroying = false;
+    private AudioSource sound = null;
 
     public int damage = 20;
 
@@ -13,6 +14,7 @@ public class RockController : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        sound = gameObject.GetComponent<AudioSource>();
         throwIt();
     }
 
@@ -40,13 +42,17 @@ public class RockController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
-
         if (collision.gameObject.name == "Hero")
         {
+            sound.Play();
             var hero = collision.gameObject.GetComponent<HeroMovement>();
             hero?.takeHit(damage);
-            Destroy(this.gameObject);
+            Invoke("Dispose", 1.0f);
         }
+    }
+
+    private void Dispose()
+    {
+        Destroy(this.gameObject);
     }
 }

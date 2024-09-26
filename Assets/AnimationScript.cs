@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AnimationScript : MonoBehaviour
 {
 	public Sprite[] animatedImages;
-	public Image animateImageObj;
+	public Image animateImageObj ;
 
 
     // Start is called before the first frame update

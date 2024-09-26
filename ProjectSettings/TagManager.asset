@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Background
   - Obstacles
+  - StoreItem
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,6 @@ TagManager:
   - 
   - Hero
   - Ground
-  - 
   - 
   - 
   - 
